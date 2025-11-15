@@ -2,6 +2,7 @@ export default function handler(req, res) {
   const { path, ...params } = req.query;
   const search = new URLSearchParams(params).toString();
 
+  // Les routes que tu veux gérer
   const routes = {
     confirm: "giftzly://confirm",
     reset: "giftzly://reset-password",
@@ -13,5 +14,6 @@ export default function handler(req, res) {
     return res.status(404).send("Invalid redirect path");
   }
 
-  return res.redirect(302, `${base}?${search}`);
+  const url = search ? `${base}?${search}` : base;
+  return res.redirect(302, url);
 }
