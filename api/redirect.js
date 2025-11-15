@@ -6,7 +6,10 @@ export default function handler(req, res) {
   const routes = {
     confirm: "giftzly://confirm",
     reset: "giftzly://reset-password",
-    "create-list": "giftzly://create-list"
+    "create-list": "giftzly://create-list",
+    "change-email": "giftzly://change-email"  
+};
+
   };
 
   const base = routes[path];
